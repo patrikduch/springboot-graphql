@@ -19,16 +19,11 @@
         <java.version>11</java.version>
     </properties>
 
-
     <modules>
         <module>springboot-graphql-api</module>
         <module>springboot-graphql-core</module>
         <module>springboot-graphql-domain</module>
+        <module>springboot-graphql-infrastructure</module>
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-        </dependencies>
-    </dependencyManagement>
 
 </project>

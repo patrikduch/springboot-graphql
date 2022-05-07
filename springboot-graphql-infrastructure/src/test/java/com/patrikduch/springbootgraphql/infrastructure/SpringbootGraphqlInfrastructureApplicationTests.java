@@ -1,4 +1,4 @@
-package com.patrikduch.springbootgraphqlinfrastructure;
+package com.patrikduch.springbootgraphql.infrastructure;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

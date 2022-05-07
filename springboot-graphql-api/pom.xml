@@ -27,6 +27,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Custom java module - Infrastructure java module -->
+        <dependency>
+            <groupId>com.patrikduch</groupId>
+            <artifactId>springboot-graphql-infrastructure</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

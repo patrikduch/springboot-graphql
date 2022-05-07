@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.patrikduch</groupId>
     <artifactId>springboot-graphql-infrastructure</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>springboot-graphql-infrastructure</name>
     <description>springboot-graphql-infrastructure</description>
     <properties>
@@ -27,6 +27,39 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- GraphQL -->
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-spring-boot-starter</artifactId>
+            <version>3.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphiql-spring-boot-starter</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+
+        <!-- Custom java module - Core java module -->
+        <dependency>
+            <groupId>com.patrikduch</groupId>
+            <artifactId>springboot-graphql-core</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Custom java module - Domain java module -->
+        <dependency>
+            <groupId>com.patrikduch</groupId>
+            <artifactId>springboot-graphql-domain</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -37,5 +70,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
