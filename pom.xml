@@ -22,6 +22,8 @@
 
     <modules>
         <module>springboot-graphql-api</module>
+        <module>springboot-graphql-core</module>
+        <module>springboot-graphql-domain</module>
     </modules>
 
     <dependencyManagement>
