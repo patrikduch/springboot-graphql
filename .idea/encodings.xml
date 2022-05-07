@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/springboot-graphql-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-graphql-domain/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-graphql-infrastructure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-graphql-persistence/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

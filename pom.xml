@@ -24,6 +24,7 @@
         <module>springboot-graphql-core</module>
         <module>springboot-graphql-domain</module>
         <module>springboot-graphql-infrastructure</module>
+        <module>springboot-graphql-persistence</module>
     </modules>
 
 </project>

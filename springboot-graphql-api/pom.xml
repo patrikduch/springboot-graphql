@@ -34,6 +34,13 @@
             <artifactId>springboot-graphql-infrastructure</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
+
+        <!-- Custom java module - Persistence java module -->
+        <dependency>
+            <groupId>com.patrikduch</groupId>
+            <artifactId>springboot-graphql-persistence</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -44,5 +51,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

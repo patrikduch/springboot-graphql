@@ -5,8 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 // Scanning all necessary packages
 @SpringBootApplication(scanBasePackages = {
-        "com.patrikduch.springbootgraphql.infrastructure",
         "com.patrikduch.springbootgraphql.core",
+        "com.patrikduch.springbootgraphql.infrastructure",
+        "com.patrikduch.springbootgraphql.persistence",
 })
 public class SpringbootGraphqlApiApplication {
 
