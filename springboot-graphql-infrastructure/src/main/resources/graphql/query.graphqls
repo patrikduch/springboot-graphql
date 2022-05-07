@@ -1,4 +1,5 @@
 type Query {
     getProjectDetail: ProjectDetailDto
+    helloWorld: String!
 }
 
