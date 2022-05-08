@@ -27,4 +27,14 @@
         <module>springboot-graphql-persistence</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.patrikduch</groupId>
+                <artifactId>springboot-graphql-api</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>
