@@ -17,7 +17,6 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
-
         <!-- GraphQL -->
         <dependency>
             <groupId>com.graphql-java</groupId>
@@ -44,7 +43,6 @@
             <version>5.0.2</version>
         </dependency>
 
-
         <!-- Custom java module - Core java module -->
         <dependency>
             <groupId>com.patrikduch</groupId>
@@ -59,5 +57,4 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
 </project>
