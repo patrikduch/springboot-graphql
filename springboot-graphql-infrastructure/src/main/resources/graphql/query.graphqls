@@ -3,5 +3,6 @@ type Query {
     helloWorld: String!
     geetingMessage(firstName: String!, secondName: String!): String
     getCustomMessage: MessageDto
+    getRolDice: [Int!]!
 }
 

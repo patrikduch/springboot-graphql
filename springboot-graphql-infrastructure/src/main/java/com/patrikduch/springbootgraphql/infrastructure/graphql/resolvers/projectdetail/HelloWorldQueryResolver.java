@@ -2,6 +2,9 @@ package com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.projec
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.patrikduch.domain.dtos.MessageDto;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -25,5 +28,9 @@ public class HelloWorldQueryResolver implements GraphQLQueryResolver {
         res.setText("test");
 
         return res;
+    }
+
+    public List<Integer> getRolDice() {
+        return Arrays.asList(1,2,3,4);
     }
 }
