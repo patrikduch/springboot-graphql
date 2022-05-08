@@ -1,1 +1,9 @@
-test: 'Patrik Duch is the King'
+---
+spring:
+  profiles: local
+
+dbServer:
+  jdbcUrl: "jdbc:postgresql://localhost:5432/springboot_graphql"
+  username: "patrikduch"
+  password: "ghost"
+---
