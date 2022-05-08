@@ -2,5 +2,6 @@ type Query {
     getProjectDetail: ProjectDetailDto
     helloWorld: String!
     geetingMessage(firstName: String!, secondName: String!): String
+    getCustomMessage: MessageDto
 }
 

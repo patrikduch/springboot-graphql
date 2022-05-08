@@ -24,6 +24,7 @@ public class GraphQLConfig {
                 .file("graphql/project-detail.graphqls")
                 .file("graphql/post.graphql")
                 .file("graphql/comment.graphql")
+                .file("graphql/message.graphqls")
                 .build().makeExecutableSchema();
         ExecutionStrategy executionStrategy = new AsyncExecutionStrategy();
         GraphQLServlet servlet = new SimpleGraphQLServlet(schema, executionStrategy);
