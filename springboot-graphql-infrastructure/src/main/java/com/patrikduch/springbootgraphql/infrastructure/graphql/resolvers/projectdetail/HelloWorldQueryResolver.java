@@ -2,9 +2,12 @@ package com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.projec
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.patrikduch.domain.dtos.MessageDto;
-
 import java.util.UUID;
 
+/**
+ * Test GraphQL data resolver for hello world queries.
+ * @author Patrik Duch
+ */
 public class HelloWorldQueryResolver implements GraphQLQueryResolver {
 
     public String helloWorld() {
