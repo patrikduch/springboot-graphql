@@ -1048,3 +1048,6 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "schema_one.projec
 2022-05-09 09:20:45.186  INFO 1964 --- [main] c.p.s.SpringbootGraphqlApiApplication    : Started SpringbootGraphqlApiApplication in 0.914 seconds (JVM running for 1.127)
 2022-05-09 09:20:49.311  INFO 1964 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2022-05-09 09:20:49.373  INFO 1964 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-09 09:40:02.524  WARN 1964 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m42s961ms).
+2022-05-09 09:58:26.237  INFO 1964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-09 09:58:26.239  INFO 1964 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
