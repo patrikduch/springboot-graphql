@@ -1,8 +1,9 @@
 type Query {
-    getProjectDetail: ProjectDetailDto
+    getProjectDetail(warehouseId: String!): ProjectDetailDto
     helloWorld: String!
     geetingMessage(firstName: String!, secondName: String!): String
     getCustomMessage: MessageDto
     getRolDice: [Int!]!
+    authors: [Author],
 }
 

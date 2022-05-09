@@ -1,4 +1,4 @@
-package com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.projectdetail;
+package com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.hello_world;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.patrikduch.domain.dtos.MessageDto;

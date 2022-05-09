@@ -11,7 +11,7 @@ public class ProjectDetailQueryResolver implements GraphQLQueryResolver {
     public ProjectDetailDao projectDetailDao;
 
 
-    public ProjectDetailDto getProjectDetail() {
-        return projectDetailDao.getProjectDetail();
+    public ProjectDetailDto getProjectDetail(String warehouseId) {
+        return projectDetailDao.getProjectDetail(warehouseId);
     }
 }

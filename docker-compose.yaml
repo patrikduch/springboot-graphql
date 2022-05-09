@@ -1,18 +1,32 @@
 version: '3'
 
 services:
-  postgres:
+  datasource_one:
     image: postgres:13
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_datasource_one:/var/lib/postgresql/data
       # copy the sql script to create schema
-      - ./docker/postgres/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      - ./docker/postgres/datasource_one/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
     environment:
-      POSTGRES_DB: springboot_graphql
+      POSTGRES_DB: data_source_one
       POSTGRES_USER: patrikduch
       POSTGRES_PASSWORD: ghost
     ports:
       - '5432:5432'
 
+  datasource_two:
+    image: postgres:13
+    volumes:
+      - postgres_datasource_two:/var/lib/postgresql/data
+      # copy the sql script to create schema
+      - ./docker/postgres/datasource_two/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+    environment:
+      POSTGRES_DB: data_source_two
+      POSTGRES_USER: patrikduch
+      POSTGRES_PASSWORD: ghost
+    ports:
+      - '5433:5432'
+
 volumes:
-  postgres_data:
+  postgres_datasource_one:
+  postgres_datasource_two:

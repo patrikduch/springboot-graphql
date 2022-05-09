@@ -1,0 +1,7 @@
+type Author {
+    id: ID!
+    name: String!
+    email: String!
+    posts: [Post]! # every author can have multiple posts
+}
+

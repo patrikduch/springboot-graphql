@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @author Patrik Duch
  */
 @SpringBootApplication(scanBasePackages = {
+        "com.patrikduch.springbootgraphqlapi",
         "com.patrikduch.springbootgraphql.core",
         "com.patrikduch.springbootgraphql.infrastructure",
         "com.patrikduch.springbootgraphql.persistence",
