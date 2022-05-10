@@ -4,6 +4,7 @@ type Query {
     geetingMessage(firstName: String!, secondName: String!): String
     getCustomMessage: MessageDto
     getRolDice: [Int!]!
-    authors: [Author],
+    getAuthors: [Author],
+    getPosts: [Post]!
 }
 

@@ -1,9 +1,10 @@
 package com.patrikduch.springbootgraphql.infrastructure.graphql.config;
 
 import com.coxautodev.graphql.tools.SchemaParser;
-import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.AuthorFieldResolver;
+import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostFieldResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.AuthorQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.hello_world.HelloWorldQueryResolver;
+import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.projectdetail.ProjectDetailQueryResolver;
 import graphql.execution.AsyncExecutionStrategy;
 import graphql.execution.ExecutionStrategy;
@@ -21,11 +22,17 @@ public class GraphQLConfig {
     public ServletRegistrationBean servletRegistrationBean() {
 
         GraphQLSchema schema  = SchemaParser.newParser()
-                .resolvers(projectDetailQuery(), helloWorldQuery(), authorQuery(), authorFieldQuery())
+                .resolvers(
+                        projectDetailQuery(),
+                        helloWorldQuery(),
+                        authorQuery(),
+                        authorFieldQuery(),
+                        postQuery()
+                )
                 .file("graphql/query.graphqls")
                 .file("graphql/project-detail.graphqls")
                 .file("graphql/post.graphqls")
-                .file("graphql/comment.graphql")
+                .file("graphql/comment.graphqls")
                 .file("graphql/message.graphqls")
                 .file("graphql/author.graphqls")
                 .build().makeExecutableSchema();
@@ -46,12 +53,18 @@ public class GraphQLConfig {
    }
 
    @Bean
-   public AuthorFieldResolver authorFieldQuery() {
-        return new AuthorFieldResolver();
+   public PostFieldResolver authorFieldQuery() {
+        return new PostFieldResolver();
    }
 
-    @Bean
-    public ProjectDetailQueryResolver projectDetailQuery() {
+   @Bean
+   public PostQueryResolver postQuery() {
+        return new PostQueryResolver();
+   }
+
+   @Bean
+   public ProjectDetailQueryResolver projectDetailQuery()
+   {
         return new ProjectDetailQueryResolver();
-    }
+   }
 }

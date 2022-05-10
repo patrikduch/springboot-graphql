@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
+@Builder // for enabling Builder pattern
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthorDto {
