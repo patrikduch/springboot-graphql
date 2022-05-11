@@ -49,7 +49,7 @@
                             <user>patrikduch</user>
                             <password>ghost</password>
                             <schemas>
-                                schema_one
+                                springboot_graphql
                             </schemas>
                         </configuration>
                     </plugin>

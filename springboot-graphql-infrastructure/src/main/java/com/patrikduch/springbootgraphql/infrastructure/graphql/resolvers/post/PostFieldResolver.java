@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * @class AuthorFieldResolver Data resolver for field property of class AuthorDto.
+ * @class PostFieldResolver Data resolver for field property of class AuthorDto.
  * @author Patrik Duch
  */
 public class PostFieldResolver implements GraphQLResolver<AuthorDto> {
 
-    public List<PostDto> getPosts(AuthorDto authorDto) {
+    public List<PostDto> posts(AuthorDto authorDto) {
         return Collections.singletonList(
                 PostDto
                         .builder()
@@ -26,3 +26,5 @@ public class PostFieldResolver implements GraphQLResolver<AuthorDto> {
 
     }
 }
+
+

@@ -1,16 +1,17 @@
 --------------------------------------------------------------------------------------------
 -- Author       Patrik Duch
--- Purpose      Project Detail entity for storing basic information about this web project.
+-- Purpose      Creation of Post entity.
 --------------------------------------------------------------------------------------------
 DO $_$
 BEGIN
     BEGIN
        IF NOT EXISTS (SELECT ic.column_name FROM information_schema.columns ic
-            WHERE ic.table_name = 'projectdetail' AND ic.table_schema = 'schema_one') THEN
+            WHERE ic.table_name = 'post') THEN
 
-                CREATE TABLE schema_one.projectdetail (
-                    id  SERIAL NOT NULL PRIMARY KEY,
-                    name VARCHAR(75) NOT NULL
+                CREATE TABLE post (
+                      id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+                      title VARCHAR(40),
+                      description TEXT
                 );
 
         END IF;

@@ -6,7 +6,7 @@ services:
     volumes:
       - postgres_datasource_one:/var/lib/postgresql/data
       # copy the sql script to create schema
-      - ./docker/postgres/datasource_one/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      - ./docker/postgres/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
     environment:
       POSTGRES_DB: data_source_one
       POSTGRES_USER: patrikduch
@@ -19,7 +19,7 @@ services:
     volumes:
       - postgres_datasource_two:/var/lib/postgresql/data
       # copy the sql script to create schema
-      - ./docker/postgres/datasource_two/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+      - ./docker/postgres/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
     environment:
       POSTGRES_DB: data_source_two
       POSTGRES_USER: patrikduch

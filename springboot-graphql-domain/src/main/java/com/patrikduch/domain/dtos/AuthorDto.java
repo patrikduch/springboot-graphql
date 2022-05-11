@@ -6,8 +6,8 @@ import java.util.UUID;
 
 @Data
 @Builder // for enabling Builder pattern
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor // for creating constructor without arguments
+@AllArgsConstructor // for creating all constructors
 public class AuthorDto {
     private UUID id;
     private String name;
