@@ -26,6 +26,7 @@
         <module>springboot-graphql-infrastructure</module>
         <module>springboot-graphql-persistence</module>
         <module>springboot-graphql-migrations</module>
+        <module>springboot-graphql-local</module>
     </modules>
 
     <dependencyManagement>
@@ -35,7 +36,23 @@
                 <artifactId>springboot-graphql-api</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.patrikduch</groupId>
+                <artifactId>springboot-graphql-local</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <profiles>
+        <profile>
+            <id>local</id>
+            <modules>
+                <module>springboot-graphql-api</module>
+                <module>springboot-graphql-core</module>
+                <module>springboot-graphql-local</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>

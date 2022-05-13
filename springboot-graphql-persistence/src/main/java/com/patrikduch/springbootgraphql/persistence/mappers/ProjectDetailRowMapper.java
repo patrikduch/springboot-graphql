@@ -11,7 +11,7 @@ public class ProjectDetailRowMapper implements RowMapper {
     public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         var projectdetail = new ProjectDetailEntity();
-        projectdetail.setId(rs.getLong("id"));
+        projectdetail.setId(rs.getString("id"));
         projectdetail.setName(rs.getString("name"));
 
         return projectdetail;

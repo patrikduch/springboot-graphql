@@ -14,6 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
         "com.patrikduch.springbootgraphqlapi",
         "com.patrikduch.springbootgraphql.core",
         "com.patrikduch.springbootgraphql.infrastructure",
+        "com.patrikduch.springbootgraphql.local",
         "com.patrikduch.springbootgraphql.persistence",
 })
 
@@ -25,5 +26,4 @@ public class SpringbootGraphqlApiApplication extends SpringBootServletInitialize
     public static void main(String[] args) {
         SpringApplication.run(SpringbootGraphqlApiApplication.class, args);
     }
-
 }

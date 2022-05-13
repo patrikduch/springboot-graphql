@@ -34,9 +34,9 @@
     </dependencies>
 
     <profiles>
-        <!-- Local profile -->
+        <!-- Local profile first datasource -->
         <profile>
-            <id>local</id>
+            <id>local-first-datasource</id>
             <build>
                 <plugins>
                     <plugin>
@@ -46,6 +46,29 @@
                         <configuration>
                             <driver>org.postgresql.Driver</driver>
                             <url>jdbc:postgresql://localhost:5432/data_source_one</url>
+                            <user>patrikduch</user>
+                            <password>ghost</password>
+                            <schemas>
+                                springboot_graphql
+                            </schemas>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Local profile second datasource -->
+        <profile>
+            <id>local-second-datasource</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.flywaydb</groupId>
+                        <artifactId>flyway-maven-plugin</artifactId>
+                        <version>8.5.9</version>
+                        <configuration>
+                            <driver>org.postgresql.Driver</driver>
+                            <url>jdbc:postgresql://localhost:5433/data_source_two</url>
                             <user>patrikduch</user>
                             <password>ghost</password>
                             <schemas>
