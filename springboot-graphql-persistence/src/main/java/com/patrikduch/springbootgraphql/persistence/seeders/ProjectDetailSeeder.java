@@ -19,7 +19,6 @@ public class ProjectDetailSeeder {
     private JdbcTemplate jdbcTemplate2;
 
     public void init () {
-
         seedData(jdbcTemplate1);
         seedData(jdbcTemplate2);
     }

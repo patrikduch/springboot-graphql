@@ -3,7 +3,6 @@ package com.patrikduch.springbootgraphql.persistence.daos;
 import com.patrikduch.domain.dtos.ProjectDetailDto;
 import com.patrikduch.domain.entities.ProjectDetailEntity;
 import com.patrikduch.springbootgraphql.core.interfaces.daos.ProjectDetailDao;
-import com.patrikduch.springbootgraphql.persistence.mappers.CountRowMapper;
 import com.patrikduch.springbootgraphql.persistence.mappers.ProjectDetailRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -48,14 +47,6 @@ public class ProjectDetailDaoImpl implements ProjectDetailDao {
             projectDetail.setProjectName(result.getName());
         }
 
-
-
         return projectDetail;
-    }
-
-    @Override
-    public void changeProjectDetail(@NotNull String projectName) {
-
-
     }
 }
