@@ -7,6 +7,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
+/**
+ * Seeder functionality for project-detail entity.
+ * @author Patrik Duch
+ */
 @Repository
 public class ProjectDetailSeeder {
 
@@ -23,7 +27,11 @@ public class ProjectDetailSeeder {
         seedData(jdbcTemplate2);
     }
 
-
+    /**
+     * Functionality for seeding ProjectDetail relations.
+     * @author Patrik Duch
+     * @param jdbcTemplate Access to the particular dataset.
+     */
     private void seedData(JdbcTemplate jdbcTemplate) {
         var rowSet = jdbcTemplate.queryForRowSet("select count(*) from springboot_graphql.projectdetail;");
 
