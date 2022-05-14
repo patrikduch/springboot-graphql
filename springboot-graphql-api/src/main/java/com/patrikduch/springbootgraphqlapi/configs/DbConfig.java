@@ -6,11 +6,14 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import javax.sql.DataSource;
 
+/**
+ * Configuration for multiple-datasources to be used by JDBC.
+ * @author Patrik Duch
+ */
 @Configuration
-public class WebConfig {
+public class DbConfig {
 
     @Bean(name = "db1")
     @ConfigurationProperties(prefix = "spring.datasource")
