@@ -1,12 +1,10 @@
 package com.patrikduch.springbootgraphql.persistence.daos;
 
 import com.patrikduch.domain.dtos.ProjectDetailDto;
-import com.patrikduch.domain.entities.ProjectDetailEntity;
 import com.patrikduch.springbootgraphql.core.interfaces.daos.ProjectDetailDao;
-import com.patrikduch.springbootgraphql.persistence.mappers.ProjectDetailRowMapper;
+import com.patrikduch.springbootgraphql.persistence.pgpsql.functions.ProjectDetailFn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -19,9 +17,7 @@ public class ProjectDetailDaoImpl implements ProjectDetailDao {
 
     private final JdbcTemplate jdbcTemplate1;
     private final JdbcTemplate jdbcTemplate2;
-
-    @Value("${shared.dbschema}")
-    private String dbSchema;
+    private final ProjectDetailFn projectDetailFn;
 
     /**
      * Initializes a new instance of the ProjectDetailDaoImpl..
@@ -31,10 +27,12 @@ public class ProjectDetailDaoImpl implements ProjectDetailDao {
     @Autowired
     public ProjectDetailDaoImpl(
             @Qualifier("jdbcTemplate1") JdbcTemplate jdbcTemplate1,
-            @Qualifier("jdbcTemplate2") JdbcTemplate jdbcTemplate2
+            @Qualifier("jdbcTemplate2") JdbcTemplate jdbcTemplate2,
+            ProjectDetailFn projectDetailFn
     ) {
         this.jdbcTemplate1 = jdbcTemplate1;
         this.jdbcTemplate2 = jdbcTemplate2;
+        this.projectDetailFn = projectDetailFn;
     }
 
     /**
@@ -47,23 +45,12 @@ public class ProjectDetailDaoImpl implements ProjectDetailDao {
 
         var projectDetail = new ProjectDetailDto();
 
-        var sql = String.format("SELECT id, name from %s.projectdetail", dbSchema);
-
-        ProjectDetailEntity result;
         if (warehouseId.equals("1")) {
-            result = (ProjectDetailEntity) jdbcTemplate1
-                    .query(sql, new ProjectDetailRowMapper())
-                    .stream()
-                    .findFirst().get();
+            projectDetail = projectDetailFn.getProjectDetailFn(jdbcTemplate1);
 
         } else {
-            result = (ProjectDetailEntity) jdbcTemplate2
-                    .query(sql, new ProjectDetailRowMapper())
-                    .stream()
-                    .findFirst().get();
-
+            projectDetail = projectDetailFn.getProjectDetailFn(jdbcTemplate2);
         }
-        projectDetail.setProjectName(result.getName());
 
         return projectDetail;
     }

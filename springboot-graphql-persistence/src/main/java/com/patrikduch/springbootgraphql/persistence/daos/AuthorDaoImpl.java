@@ -9,6 +9,7 @@ import java.util.List;
  * @author Patrik Duch
  */
 public class AuthorDaoImpl implements AuthorDao {
+
     @Override
     public List<AuthorDto> fetchAuthors() {
         return null;
