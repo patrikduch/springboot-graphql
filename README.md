@@ -12,6 +12,15 @@
 </ul>
 
 
+## Maintenance
+
+### Port cleanup
+
+```bash
+sudo kill `sudo lsof -t -i:3000`
+```
+
+
 ## Docker
 
 docker buildx build --platform=linux/amd64 -f docker/Dockerfile.local  -t springboot-graphql:v1.0.0 .

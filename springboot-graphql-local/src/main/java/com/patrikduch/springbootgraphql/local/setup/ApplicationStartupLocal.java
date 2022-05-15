@@ -2,8 +2,6 @@ package com.patrikduch.springbootgraphql.local.setup;
 
 import com.patrikduch.springbootgraphql.persistence.seeders.ProjectDetailSeeder;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
@@ -22,10 +20,6 @@ public class ApplicationStartupLocal implements ApplicationListener<ApplicationR
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-
         projectDetailSeeder.init();
-        var test = 4;
-
-
     }
 }
