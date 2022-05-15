@@ -28,7 +28,7 @@ public class ProjectDetailFn {
             PreparedStatement pstmt = conn.prepareStatement("select * from springboot_graphql.get_projectdetail_fn()");
 
             ResultSet results = pstmt.executeQuery();
-            while (results.next()) {      // do something with the results...
+            while (results.next()) {  // do something with the results...
                 projectdetail.setProjectName(results.getString("project_name"));
             }
             results.close();
