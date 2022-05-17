@@ -10,4 +10,5 @@ import java.sql.SQLException;
 public interface GenericRepository {
     Long count(String sql, String warehouseId);
     FunctionCallerDto callFn(String sql, String warehouseId) throws SQLException;
+    void add(String sql, String warehouseId);
 }

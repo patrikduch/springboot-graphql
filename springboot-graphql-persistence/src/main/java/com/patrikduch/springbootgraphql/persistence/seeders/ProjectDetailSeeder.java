@@ -2,7 +2,8 @@ package com.patrikduch.springbootgraphql.persistence.seeders;
 
 import com.patrikduch.domain.entities.ProjectDetailEntity;
 import com.patrikduch.springbootgraphql.core.interfaces.helpers.GenericRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.patrikduch.springbootgraphql.shared.constants.WarehouseConstants;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -12,35 +13,26 @@ import java.util.UUID;
  * Seeder functionality for project-detail entity.
  * @author Patrik Duch
  */
+@AllArgsConstructor
 @Repository
 public class ProjectDetailSeeder {
 
-    @Autowired
-    @Qualifier("jdbcTemplate1")
-    private JdbcTemplate jdbcTemplate1;
-
-    @Autowired
-    @Qualifier("jdbcTemplate2")
-    private JdbcTemplate jdbcTemplate2;
-
-    @Autowired
-    private GenericRepository genericRepository;
+    private final GenericRepository genericRepository;
 
     public void init () {
-        seedData(jdbcTemplate1);
-        seedData(jdbcTemplate2);
+        seedData(WarehouseConstants.WAREHOUSE_ONE);
+        seedData(WarehouseConstants.WAREHOUSE_TWO);
     }
 
     /**
      * Functionality for seeding ProjectDetail relations.
      * @author Patrik Duch
-     * @param jdbcTemplate Access to the particular dataset.
      */
-    private void seedData(JdbcTemplate jdbcTemplate) {
+    private void seedData(String warehouseId) {
 
         var count = genericRepository.count(
                 "select COUNT(*) AS recordCount from springboot_graphql.projectdetail;",
-                "4900"
+                warehouseId
         );
 
         if (count == 0) {
@@ -52,7 +44,7 @@ public class ProjectDetailSeeder {
                     UUID.randomUUID(), projectDetail.getName()
             );
 
-            jdbcTemplate.execute(sql);
+            genericRepository.add(sql, warehouseId);
         }
     }
 }
