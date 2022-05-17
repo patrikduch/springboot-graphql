@@ -2,8 +2,8 @@ package com.patrikduch.springbootgraphql.persistence.daos;
 
 import com.patrikduch.domain.dtos.ProjectDetailDto;
 import com.patrikduch.springbootgraphql.core.interfaces.daos.ProjectDetailDao;
-import com.patrikduch.springbootgraphql.persistence.pgpsql.functions.ProjectDetailFn;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.patrikduch.springbootgraphql.persistence.plpgsql.functions.ProjectDetailFnImpl;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -12,28 +12,13 @@ import org.springframework.stereotype.Repository;
  * DAO for manipulation for ProjectDetail entity.
  * @author Patrik Duch
  */
+@AllArgsConstructor
 @Repository
 public class ProjectDetailDaoImpl implements ProjectDetailDao {
 
-    private final JdbcTemplate jdbcTemplate1;
-    private final JdbcTemplate jdbcTemplate2;
-    private final ProjectDetailFn projectDetailFn;
-
-    /**
-     * Initializes a new instance of the ProjectDetailDaoImpl..
-     * @param jdbcTemplate1 First SQL datasource.
-     * @param jdbcTemplate2 Second  SQL datasource.
-     */
-    @Autowired
-    public ProjectDetailDaoImpl(
-            @Qualifier("jdbcTemplate1") JdbcTemplate jdbcTemplate1,
-            @Qualifier("jdbcTemplate2") JdbcTemplate jdbcTemplate2,
-            ProjectDetailFn projectDetailFn
-    ) {
-        this.jdbcTemplate1 = jdbcTemplate1;
-        this.jdbcTemplate2 = jdbcTemplate2;
-        this.projectDetailFn = projectDetailFn;
-    }
+    private final @Qualifier("jdbcTemplate1") JdbcTemplate jdbcTemplate1;
+    private final @Qualifier("jdbcTemplate2") JdbcTemplate jdbcTemplate2;
+    private final ProjectDetailFnImpl projectDetailFn;
 
     /**
      * Get basic information about project.
@@ -43,14 +28,10 @@ public class ProjectDetailDaoImpl implements ProjectDetailDao {
     @Override
     public ProjectDetailDto getProjectDetail(String warehouseId) {
 
-        var projectDetail = new ProjectDetailDto();
-
-        if (warehouseId.equals("1")) {
-            projectDetail = projectDetailFn.getProjectDetailFn(jdbcTemplate1);
-
-        } else {
-            projectDetail = projectDetailFn.getProjectDetailFn(jdbcTemplate2);
-        }
+        var projectDetail = projectDetailFn.getProjectDetailFn(
+                "select * from springboot_graphql.get_projectdetail_fn()",
+                warehouseId
+        );
 
         return projectDetail;
     }

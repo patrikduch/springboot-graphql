@@ -43,6 +43,12 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- Custom java module - Shared java module -->
+        <dependency>
+            <groupId>com.patrikduch</groupId>
+            <artifactId>springboot-graphql-shared</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>

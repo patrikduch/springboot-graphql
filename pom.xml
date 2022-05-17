@@ -27,6 +27,7 @@
         <module>springboot-graphql-persistence</module>
         <module>springboot-graphql-migrations</module>
         <module>springboot-graphql-local</module>
+        <module>springboot-graphql-shared</module>
     </modules>
 
     <dependencyManagement>
