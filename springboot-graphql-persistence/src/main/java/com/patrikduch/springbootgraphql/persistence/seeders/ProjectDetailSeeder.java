@@ -4,8 +4,6 @@ import com.patrikduch.domain.entities.ProjectDetailEntity;
 import com.patrikduch.springbootgraphql.core.interfaces.helpers.GenericRepository;
 import com.patrikduch.springbootgraphql.shared.constants.WarehouseConstants;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
