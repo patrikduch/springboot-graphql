@@ -1,10 +1,10 @@
 package com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.patrikduch.domain.dtos.AuthorDto;
-import java.util.Collections;
+import com.patrikduch.domain.entities.AuthorEntity;
+import com.patrikduch.springbootgraphql.core.interfaces.plpgsql.functions.AuthorFn;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @class AuthorQueryResolver
@@ -12,12 +12,10 @@ import java.util.UUID;
  */
 public class AuthorQueryResolver implements GraphQLQueryResolver {
 
-    public List<AuthorDto> getAuthors() {
-        return Collections.singletonList(AuthorDto
-                .builder()
-                .id(UUID.randomUUID())
-                .email("testemail@gmail.com")
-                .name("test").build());
+    @Autowired
+    private AuthorFn authorFn;
 
+    public List<AuthorEntity> getAuthors(String warehouseId) {
+        return authorFn.fetchAuthors(warehouseId);
     }
 }

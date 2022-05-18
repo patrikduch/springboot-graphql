@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------------
 -- Author       Patrik Duch
--- Purpose      Fetch list of authors,
+-- Purpose      Fetch list of authors fix.
 ---------------------------------------------------------------------------------------------------------
 DO $$ -- IF function already exists we must drop it
 BEGIN
@@ -10,7 +10,6 @@ BEGIN
 		WHERE P.proname = 'get_authors_fn') THEN
 
             DROP FUNCTION get_authors_fn;
-
     END IF;
 END;
 $$;
@@ -23,10 +22,11 @@ BEGIN
             name VARCHAR,
             email TEXT
         )  AS $$
-            BEGIN
-                RETURN QUERY
-                    SELECT a.id, a."name", a.email from author a;
-            END
-            $$ LANGUAGE plpgsql;
+        BEGIN
+            RETURN QUERY
+                SELECT a.id, a."name", a.email
+                FROM springboot_graphql.author a;
+        END
+        $$ LANGUAGE plpgsql;
     END;
 END $_$;
