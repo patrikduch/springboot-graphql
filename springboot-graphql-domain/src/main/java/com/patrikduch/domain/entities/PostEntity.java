@@ -15,4 +15,5 @@ public class PostEntity {
     private String id;
     private String title;
     private String description;
+    private String authorId;
 }

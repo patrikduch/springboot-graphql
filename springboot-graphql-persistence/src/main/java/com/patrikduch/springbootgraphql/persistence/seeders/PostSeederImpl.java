@@ -2,6 +2,7 @@ package com.patrikduch.springbootgraphql.persistence.seeders;
 
 import com.patrikduch.domain.entities.PostEntity;
 import com.patrikduch.springbootgraphql.core.interfaces.helpers.GenericRepository;
+import com.patrikduch.springbootgraphql.core.interfaces.plpgsql.functions.AuthorFn;
 import com.patrikduch.springbootgraphql.shared.constants.WarehouseConstants;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Repository
 public class PostSeederImpl {
     private final GenericRepository genericRepository;
+    private final AuthorFn authorFn;
 
     public void init () {
         seedData(WarehouseConstants.WAREHOUSE_ONE);
@@ -28,6 +30,8 @@ public class PostSeederImpl {
                 "select COUNT(*) AS recordCount from springboot_graphql.post;",
                 warehouseId
         );
+
+        var authors = authorFn.fetchAuthors(warehouseId);
 
         var posts = new ArrayList<PostEntity>();
 
@@ -54,8 +58,8 @@ public class PostSeederImpl {
         if (count == 0) {
             posts.forEach(p -> {
                 var sql = String.format(
-                        "INSERT INTO springboot_graphql.post values ('%s', '%s', '%s');",
-                        UUID.randomUUID(), p.getTitle(), p.getDescription()
+                        "INSERT INTO springboot_graphql.post values ('%s', '%s', '%s', '%s');",
+                        UUID.randomUUID(), p.getTitle(), p.getDescription(), authors.get(0).getId()
                 );
 
                 genericRepository.add(sql, warehouseId);
