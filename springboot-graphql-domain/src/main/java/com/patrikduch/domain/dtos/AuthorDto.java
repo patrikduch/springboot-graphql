@@ -13,4 +13,5 @@ public class AuthorDto {
     private String name;
     private String email;
     public List<PostDto> posts;
+    public String warehouseId;
 }

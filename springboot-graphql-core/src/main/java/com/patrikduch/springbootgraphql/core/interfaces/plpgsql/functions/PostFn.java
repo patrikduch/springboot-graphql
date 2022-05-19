@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface PostFn {
     List<PostEntity> getPosts(String warehouseId);
+    List<PostEntity> getPostsByAuthorId(String warehouseId, String authorId);
 }

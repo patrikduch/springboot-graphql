@@ -1,6 +1,6 @@
 package com.patrikduch.springbootgraphql.persistence.plpgsql.functions;
 
-import com.patrikduch.domain.entities.AuthorEntity;
+import com.patrikduch.domain.dtos.AuthorDto;
 import com.patrikduch.springbootgraphql.core.interfaces.helpers.GenericRepository;
 import com.patrikduch.springbootgraphql.core.interfaces.plpgsql.functions.AuthorFn;
 import lombok.AllArgsConstructor;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Preparation of all author's retrieval PLpgSQL functions.
@@ -20,8 +21,8 @@ public class AuthorFnImpl implements AuthorFn {
     private final GenericRepository genericRepository;
 
     @Override
-    public List<AuthorEntity> fetchAuthors(String warehouseId) {
-        var authorList = new ArrayList<AuthorEntity>();
+    public List<AuthorDto> fetchAuthors(String warehouseId) {
+        var authorList = new ArrayList<AuthorDto>();
         var sql = "select * from springboot_graphql.get_authors_fn();";
 
         try {
@@ -29,10 +30,11 @@ public class AuthorFnImpl implements AuthorFn {
 
             while (results.getF2().next()) {  // do something with the results...
 
-                authorList.add(AuthorEntity.builder()
+                authorList.add(AuthorDto.builder()
                                 .email(results.getF2().getString("email"))
-                                .id(results.getF2().getString("id"))
+                                .id(UUID.fromString(results.getF2().getString("id")))
                                 .name(results.getF2().getString("name"))
+                                .warehouseId(warehouseId)
                         .build()
                 );
             }

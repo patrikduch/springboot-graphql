@@ -1,6 +1,6 @@
 package com.patrikduch.springbootgraphql.core.interfaces.plpgsql.functions;
 
-import com.patrikduch.domain.entities.AuthorEntity;
+import com.patrikduch.domain.dtos.AuthorDto;
 import java.util.List;
 
 /**
@@ -8,5 +8,5 @@ import java.util.List;
  * @author Patrik Duch
  */
 public interface AuthorFn {
-    List<AuthorEntity> fetchAuthors(String warehouseId);
+    List<AuthorDto> fetchAuthors(String warehouseId);
 }

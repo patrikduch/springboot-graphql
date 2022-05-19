@@ -1,7 +1,6 @@
 package com.patrikduch.domain.dtos;
 
 import lombok.*;
-
 import java.io.Serializable;
 import java.util.UUID;
 

@@ -16,10 +16,13 @@ import java.util.UUID;
  * @class PostFieldResolver Data resolver for field property of class AuthorDto.
  * @author Patrik Duch
  */
-public class PostFieldResolver implements GraphQLResolver<AuthorEntity> {
+public class PostFieldResolver implements GraphQLResolver<AuthorDto> {
 
-    public List<PostEntity> posts(AuthorEntity authorEntity) {
-        return null;
+    @Autowired
+    private PostFn postFn;
+
+    public List<PostEntity> posts(AuthorDto authorDto) {
+        return postFn.getPostsByAuthorId(authorDto.getWarehouseId(), authorDto.getId().toString());
     }
 }
 
