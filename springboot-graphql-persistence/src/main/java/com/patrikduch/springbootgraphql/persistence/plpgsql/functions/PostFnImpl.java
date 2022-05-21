@@ -1,5 +1,6 @@
 package com.patrikduch.springbootgraphql.persistence.plpgsql.functions;
 
+import com.patrikduch.domain.dtos.PostDto;
 import com.patrikduch.domain.entities.PostEntity;
 import com.patrikduch.springbootgraphql.core.interfaces.helpers.GenericRepository;
 import com.patrikduch.springbootgraphql.core.interfaces.plpgsql.functions.PostFn;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Repository
@@ -25,7 +27,7 @@ public class PostFnImpl implements PostFn {
 
             while (results.getF2().next()) {  // do something with the results...
                 postList.add(PostEntity.builder()
-                                .id(results.getF2().getString("id"))
+                                .id(UUID.fromString(results.getF2().getString("id")))
                                 .title(results.getF2().getString("title"))
                                 .description(results.getF2().getString("description"))
                         .build());
@@ -50,7 +52,7 @@ public class PostFnImpl implements PostFn {
 
             while (results.getF2().next()) {  // do something with the results...
                 postList.add(PostEntity.builder()
-                        .id(results.getF2().getString("id"))
+                        .id(UUID.fromString(results.getF2().getString("id")))
                         .title(results.getF2().getString("title"))
                         .description(results.getF2().getString("description"))
                         .build());

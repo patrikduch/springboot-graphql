@@ -13,7 +13,6 @@ import java.util.UUID;
 public class PostDto {
     private UUID id;
     private String title;
-    private String category;
     private String description;
-    private UUID authorId;
+    private AuthorDto author;
 }

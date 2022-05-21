@@ -1,8 +1,7 @@
 package com.patrikduch.springbootgraphql.infrastructure.graphql.config;
 
 import com.coxautodev.graphql.tools.SchemaParser;
-import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostFieldResolver;
-import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.AuthorQueryResolver;
+import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.AuthorFieldResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.hello_world.HelloWorldQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.projectdetail.ProjectDetailQueryResolver;
@@ -25,7 +24,6 @@ public class GraphQLConfig {
                 .resolvers(
                         projectDetailQuery(),
                         helloWorldQuery(),
-                        authorQuery(),
                         authorFieldQuery(),
                         postQuery()
                 )
@@ -48,13 +46,8 @@ public class GraphQLConfig {
    }
 
    @Bean
-   public AuthorQueryResolver authorQuery() {
-        return new AuthorQueryResolver();
-   }
-
-   @Bean
-   public PostFieldResolver authorFieldQuery() {
-        return new PostFieldResolver();
+   public AuthorFieldResolver authorFieldQuery() {
+        return new AuthorFieldResolver();
    }
 
    @Bean

@@ -3,6 +3,7 @@ package com.patrikduch.domain.entities;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.UUID;
 
 /**
  * Mapped relation entity "Post" for displaying current posts.
@@ -12,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PostEntity {
-    private String id;
+    private UUID id;
     private String title;
     private String description;
 }

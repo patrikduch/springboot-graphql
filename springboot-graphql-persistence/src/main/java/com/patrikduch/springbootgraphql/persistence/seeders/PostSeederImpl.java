@@ -36,20 +36,20 @@ public class PostSeederImpl {
         var posts = new ArrayList<PostEntity>();
 
         posts.add(PostEntity.builder()
-                .id(UUID.randomUUID().toString())
+                .id(UUID.fromString(UUID.randomUUID().toString()))
                 .title("POST #1")
                 .description("Some test description for POST #1")
                 .build());
 
         posts.add(PostEntity.builder()
-                .id(UUID.randomUUID().toString())
+                .id(UUID.fromString(UUID.randomUUID().toString()))
                 .title("POST #2")
                 .description("Some test description for POST #2")
                 .build());
 
 
         posts.add(PostEntity.builder()
-                .id(UUID.randomUUID().toString())
+                .id(UUID.fromString(UUID.randomUUID().toString()))
                 .title("POST #3")
                 .description("Some test description for POST #3")
                 .build());

@@ -12,6 +12,6 @@ public class AuthorDto {
     private UUID id;
     private String name;
     private String email;
-    public List<PostDto> posts;
-    public String warehouseId;
+    private List<PostDto> posts;
+    private String warehouseId;
 }

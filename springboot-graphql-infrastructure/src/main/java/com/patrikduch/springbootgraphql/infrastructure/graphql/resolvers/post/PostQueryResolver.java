@@ -1,17 +1,18 @@
 package com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.patrikduch.domain.entities.PostEntity;
-import com.patrikduch.springbootgraphql.core.interfaces.plpgsql.functions.PostFn;
+import com.patrikduch.domain.dtos.PostDto;
+import com.patrikduch.springbootgraphql.core.interfaces.daos.PostDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 public class PostQueryResolver implements GraphQLQueryResolver {
 
     @Autowired
-    private PostFn postFn;
+    private PostDao postDao;
 
-    public List<PostEntity> getPosts(String warehouseId) {
-        return postFn.getPosts(warehouseId);
+    public List<PostDto> getPosts(String warehouseId) {
+
+        return postDao.fetchPosts(warehouseId);
     }
 }
