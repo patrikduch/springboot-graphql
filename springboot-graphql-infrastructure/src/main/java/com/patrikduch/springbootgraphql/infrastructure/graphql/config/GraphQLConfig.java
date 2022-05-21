@@ -1,8 +1,12 @@
 package com.patrikduch.springbootgraphql.infrastructure.graphql.config;
 
 import com.coxautodev.graphql.tools.SchemaParser;
+import com.patrikduch.springbootgraphql.core.interfaces.daos.AuthorDao;
+import com.patrikduch.springbootgraphql.core.interfaces.daos.PostDao;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.AuthorFieldResolver;
+import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.AuthorQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.hello_world.HelloWorldQueryResolver;
+import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostFieldResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.projectdetail.ProjectDetailQueryResolver;
 import graphql.execution.AsyncExecutionStrategy;
@@ -10,12 +14,17 @@ import graphql.execution.ExecutionStrategy;
 import graphql.schema.GraphQLSchema;
 import graphql.servlet.GraphQLServlet;
 import graphql.servlet.SimpleGraphQLServlet;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@AllArgsConstructor
 public class GraphQLConfig {
+
+    private final AuthorDao authorDao;
+    private final PostDao postDao;
 
     @Bean
     public ServletRegistrationBean servletRegistrationBean() {
@@ -24,8 +33,11 @@ public class GraphQLConfig {
                 .resolvers(
                         projectDetailQuery(),
                         helloWorldQuery(),
+                        authorQuery(),
                         authorFieldQuery(),
-                        postQuery()
+                        postQuery(),
+                        postFieldQuery()
+
                 )
                 .file("graphql/query.graphqls")
                 .file("graphql/project-detail.graphqls")
@@ -51,8 +63,18 @@ public class GraphQLConfig {
    }
 
    @Bean
+   public AuthorQueryResolver authorQuery() {
+        return new AuthorQueryResolver(this.authorDao);
+   }
+
+   @Bean
    public PostQueryResolver postQuery() {
         return new PostQueryResolver();
+   }
+
+   @Bean
+   public PostFieldResolver postFieldQuery() {
+        return new PostFieldResolver(this.postDao);
    }
 
    @Bean

@@ -8,5 +8,5 @@ import java.util.List;
  * @author Patrik Duch
  */
 public interface AuthorDao {
-    List<AuthorDto> fetchAuthors();
+    List<AuthorDto> fetchAuthors(String warehouseId);
 }
