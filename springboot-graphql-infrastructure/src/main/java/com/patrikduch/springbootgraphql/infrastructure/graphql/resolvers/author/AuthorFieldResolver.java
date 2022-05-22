@@ -16,6 +16,6 @@ public class AuthorFieldResolver implements GraphQLResolver<PostItemDto> {
     private final AuthorDao authorDao;
 
     public AuthorItemDto author(PostItemDto postItemDto) {
-        return authorDao.fetchAuthorByPost("4900", postItemDto.getId().toString());
+        return authorDao.fetchAuthorByPost(postItemDto.getWarehouseId(), postItemDto.getId().toString());
     }
 }

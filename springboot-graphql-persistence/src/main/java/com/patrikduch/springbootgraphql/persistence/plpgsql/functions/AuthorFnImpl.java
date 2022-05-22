@@ -60,6 +60,7 @@ public class AuthorFnImpl implements AuthorFn {
                         .id(UUID.fromString(results.getF2().getString("id")))
                         .name(results.getF2().getString("name"))
                         .email(results.getF2().getString("email"))
+                       .warehouseId(warehouseId)
                        .build();
 
             }
