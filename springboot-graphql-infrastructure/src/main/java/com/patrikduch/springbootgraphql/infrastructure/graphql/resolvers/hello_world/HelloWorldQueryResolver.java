@@ -1,7 +1,7 @@
 package com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.hello_world;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.patrikduch.domain.dtos.MessageDto;
+import com.patrikduch.domain.dtos.app.MessageDto;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;

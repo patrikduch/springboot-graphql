@@ -1,7 +1,7 @@
 package com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.projectdetail;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.patrikduch.domain.dtos.ProjectDetailDto;
+import com.patrikduch.domain.dtos.app.ProjectDetailDto;
 import com.patrikduch.springbootgraphql.core.interfaces.daos.ProjectDetailDao;
 import org.springframework.beans.factory.annotation.Autowired;
 

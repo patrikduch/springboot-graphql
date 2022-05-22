@@ -17,4 +17,5 @@ public class PostEntity {
     private UUID id;
     private String title;
     private String description;
+    private String warehouseId;
 }

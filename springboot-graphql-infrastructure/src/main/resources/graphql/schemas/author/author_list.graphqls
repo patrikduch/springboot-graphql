@@ -1,0 +1,4 @@
+type AuthorList {
+    collection: [AuthorItem]!
+    warehouseId: String
+}

@@ -1,6 +1,6 @@
 package com.patrikduch.springbootgraphql.persistence.helpers;
 
-import com.patrikduch.domain.dtos.helpers.FunctionCallerDto;
+import com.patrikduch.domain.dtos.shared.helpers.FunctionCallerDto;
 import com.patrikduch.springbootgraphql.core.interfaces.helpers.GenericRepository;
 import com.patrikduch.springbootgraphql.shared.constants.WarehouseConstants;
 import org.springframework.beans.factory.annotation.Qualifier;

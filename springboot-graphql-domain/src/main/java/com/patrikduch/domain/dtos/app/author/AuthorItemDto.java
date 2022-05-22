@@ -1,6 +1,10 @@
-package com.patrikduch.domain.dtos;
+package com.patrikduch.domain.dtos.app.author;
 
-import lombok.*;
+import com.patrikduch.domain.dtos.app.post.PostListDto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.UUID;
 
@@ -8,10 +12,10 @@ import java.util.UUID;
 @Builder // for enabling Builder pattern
 @NoArgsConstructor // for creating constructor without arguments
 @AllArgsConstructor // for creating all constructors
-public class AuthorDto {
+public class AuthorItemDto {
     private UUID id;
     private String name;
     private String email;
-    private List<PostDto> posts;
+    private List<PostListDto> posts;
     private String warehouseId;
 }

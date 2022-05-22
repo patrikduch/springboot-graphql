@@ -1,6 +1,6 @@
 package com.patrikduch.springbootgraphql.persistence.daos;
 
-import com.patrikduch.domain.dtos.ProjectDetailDto;
+import com.patrikduch.domain.dtos.app.ProjectDetailDto;
 import com.patrikduch.springbootgraphql.core.interfaces.daos.ProjectDetailDao;
 import com.patrikduch.springbootgraphql.persistence.plpgsql.functions.ProjectDetailFnImpl;
 import lombok.AllArgsConstructor;

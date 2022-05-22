@@ -41,10 +41,17 @@ public class GraphQLConfig {
                 )
                 .file("graphql/query.graphqls")
                 .file("graphql/project-detail.graphqls")
-                .file("graphql/post.graphqls")
                 .file("graphql/comment.graphqls")
                 .file("graphql/message.graphqls")
-                .file("graphql/author.graphqls")
+
+                // Author
+                .file("graphql/schemas/author/author_list.graphqls")
+                .file("graphql/schemas/author/author_item.graphqls")
+
+                // Post
+                .file("graphql/schemas/post/post_list.graphqls")
+                .file("graphql/schemas/post/post_item.graphqls")
+
                 .build().makeExecutableSchema();
         ExecutionStrategy executionStrategy = new AsyncExecutionStrategy();
         GraphQLServlet servlet = new SimpleGraphQLServlet(schema, executionStrategy);
@@ -69,7 +76,7 @@ public class GraphQLConfig {
 
    @Bean
    public PostQueryResolver postQuery() {
-        return new PostQueryResolver();
+        return new PostQueryResolver(this.postDao);
    }
 
    @Bean

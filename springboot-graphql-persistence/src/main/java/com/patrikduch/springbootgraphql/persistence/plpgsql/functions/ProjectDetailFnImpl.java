@@ -1,6 +1,6 @@
 package com.patrikduch.springbootgraphql.persistence.plpgsql.functions;
 
-import com.patrikduch.domain.dtos.ProjectDetailDto;
+import com.patrikduch.domain.dtos.app.ProjectDetailDto;
 import com.patrikduch.springbootgraphql.core.interfaces.helpers.GenericRepository;
 import com.patrikduch.springbootgraphql.core.interfaces.plpgsql.functions.ProjectDetailFn;
 import lombok.AllArgsConstructor;

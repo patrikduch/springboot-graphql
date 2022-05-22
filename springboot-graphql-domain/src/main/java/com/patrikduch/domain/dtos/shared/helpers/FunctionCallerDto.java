@@ -1,7 +1,6 @@
-package com.patrikduch.domain.dtos.helpers;
+package com.patrikduch.domain.dtos.shared.helpers;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 /**

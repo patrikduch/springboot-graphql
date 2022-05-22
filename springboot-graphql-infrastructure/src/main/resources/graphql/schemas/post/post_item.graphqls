@@ -1,6 +1,6 @@
-type Post {
+type PostItem {
     id: String!
     title: String!
     description: String!
-    author: Author
+    author: AuthorItem
 }

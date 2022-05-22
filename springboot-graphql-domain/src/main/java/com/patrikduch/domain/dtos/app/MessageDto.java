@@ -1,4 +1,4 @@
-package com.patrikduch.domain.dtos;
+package com.patrikduch.domain.dtos.app;
 
 import lombok.*;
 import java.io.Serializable;

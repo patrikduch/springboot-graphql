@@ -1,13 +1,13 @@
 package com.patrikduch.springbootgraphql.core.interfaces.daos;
 
-import com.patrikduch.domain.dtos.AuthorDto;
-import java.util.List;
+import com.patrikduch.domain.dtos.app.author.AuthorItemDto;
+import com.patrikduch.domain.dtos.app.author.AuthorListDto;
 
 /**
  * @interface Contract for AuthorDao persistence logic.
  * @author Patrik Duch
  */
 public interface AuthorDao {
-    List<AuthorDto> fetchAuthors(String warehouseId);
-    AuthorDto fetchAuthorByPost(String warehouse, String postId);
+    AuthorListDto fetchAuthors(String warehouseId);
+    AuthorItemDto fetchAuthorByPost(String warehouse, String postId);
 }

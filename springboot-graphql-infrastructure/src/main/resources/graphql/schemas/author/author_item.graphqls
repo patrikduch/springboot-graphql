@@ -1,7 +1,6 @@
-type Author {
+type AuthorItem {
     id: String!
     name: String!
     email: String!
-    posts: [Post]
+    posts: PostList
 }
-

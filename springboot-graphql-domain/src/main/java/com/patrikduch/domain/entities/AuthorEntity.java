@@ -18,4 +18,5 @@ public class AuthorEntity {
     private String name;
     private String email;
     private List<PostEntity> posts;
+    private String warehouseId;
 }

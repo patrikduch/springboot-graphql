@@ -29,8 +29,13 @@ public class PostFnImpl implements PostFn {
                                 .id(UUID.fromString(results.getF2().getString("id")))
                                 .title(results.getF2().getString("title"))
                                 .description(results.getF2().getString("description"))
+                                .warehouseId(warehouseId)
+
                         .build());
             }
+
+
+
             results.getF2().close();
             results.getF1().close();
 

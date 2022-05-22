@@ -1,6 +1,6 @@
 package com.patrikduch.springbootgraphql.core.interfaces.helpers;
 
-import com.patrikduch.domain.dtos.helpers.FunctionCallerDto;
+import com.patrikduch.domain.dtos.shared.helpers.FunctionCallerDto;
 import java.sql.SQLException;
 
 /**
