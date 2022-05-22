@@ -1,5 +1,6 @@
 package com.patrikduch.domain.dtos.helpers;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -9,7 +10,7 @@ import java.sql.ResultSet;
  * @param <T1> Object of PreparedStatement for closing the particular connection in right time.
  * @param <T2> Resultset of SQL function.
  */
-public class FunctionCallerDto<T1 extends PreparedStatement, T2 extends ResultSet> {
+public class FunctionCallerDto<T1 extends Connection, T2 extends ResultSet> {
     private T1 f1;
     private T2 f2;
     public FunctionCallerDto(T1 f1, T2 f2) {

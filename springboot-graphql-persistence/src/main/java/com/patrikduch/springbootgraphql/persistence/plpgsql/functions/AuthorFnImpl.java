@@ -1,6 +1,7 @@
 package com.patrikduch.springbootgraphql.persistence.plpgsql.functions;
 
 import com.patrikduch.domain.dtos.AuthorDto;
+import com.patrikduch.domain.entities.AuthorEntity;
 import com.patrikduch.springbootgraphql.core.interfaces.helpers.GenericRepository;
 import com.patrikduch.springbootgraphql.core.interfaces.plpgsql.functions.AuthorFn;
 import lombok.AllArgsConstructor;
@@ -46,5 +47,31 @@ public class AuthorFnImpl implements AuthorFn {
         }
 
         return authorList;
+    }
+
+    @Override
+    public AuthorEntity fetchAuthorByPost(String warehouseId, String postId) {
+        AuthorEntity author = new AuthorEntity();
+        var sql = String.format("select * from springboot_graphql.get_post_author_fn('%s');", postId);
+
+        try {
+            var results = genericRepository.callFn(sql, warehouseId);
+
+            while (results.getF2().next()) {  // do something with the results...
+
+               author = AuthorEntity.builder()
+                        .id(UUID.fromString(results.getF2().getString("id")))
+                        .name(results.getF2().getString("name"))
+                        .email(results.getF2().getString("email")).build();
+
+            }
+            results.getF2().close();
+            results.getF1().close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return author;
     }
 }

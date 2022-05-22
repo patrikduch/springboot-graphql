@@ -1,6 +1,5 @@
 package com.patrikduch.springbootgraphql.persistence.plpgsql.functions;
 
-import com.patrikduch.domain.dtos.PostDto;
 import com.patrikduch.domain.entities.PostEntity;
 import com.patrikduch.springbootgraphql.core.interfaces.helpers.GenericRepository;
 import com.patrikduch.springbootgraphql.core.interfaces.plpgsql.functions.PostFn;

@@ -16,6 +16,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
         "com.patrikduch.springbootgraphql.infrastructure",
         "com.patrikduch.springbootgraphql.local",
         "com.patrikduch.springbootgraphql.persistence",
+        "com.patrikduch.springbootgraphql.shared"
 })
 
 // JPA

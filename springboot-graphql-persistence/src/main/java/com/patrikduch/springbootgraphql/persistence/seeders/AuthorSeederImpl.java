@@ -37,14 +37,14 @@ public class AuthorSeederImpl {
         var authors = new ArrayList<AuthorEntity>();
 
         authors.add(AuthorEntity.builder()
-                .id(UUID.randomUUID().toString())
+                .id(UUID.randomUUID())
                 .email("patrikduch@superemail.com")
                 .name("Patrik")
                 .build()
         );
 
         authors.add(AuthorEntity.builder()
-                .id(UUID.randomUUID().toString())
+                .id(UUID.randomUUID())
                 .email("petradu@superemail.com")
                 .name("Petra")
                 .build());

@@ -53,9 +53,9 @@ public class GenericRepositoryImpl implements GenericRepository {
     @Override
     public FunctionCallerDto callFn(String sql, String warehouseId) throws SQLException {
         this.connection = processMultipleDataSourceConnection(warehouseId);
-
         PreparedStatement pstmt = connection.prepareStatement(sql);
-        return new FunctionCallerDto(pstmt, pstmt.executeQuery());
+
+        return new FunctionCallerDto(connection, pstmt.executeQuery());
     }
 
     /**

@@ -59,7 +59,7 @@ public class GraphQLConfig {
 
    @Bean
    public AuthorFieldResolver authorFieldQuery() {
-        return new AuthorFieldResolver();
+        return new AuthorFieldResolver(authorDao);
    }
 
    @Bean

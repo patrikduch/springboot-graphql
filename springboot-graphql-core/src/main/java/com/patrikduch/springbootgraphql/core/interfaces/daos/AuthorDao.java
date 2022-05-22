@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface AuthorDao {
     List<AuthorDto> fetchAuthors(String warehouseId);
+    AuthorDto fetchAuthorByPost(String warehouse, String postId);
 }
