@@ -1,8 +1,14 @@
 type Mutation {
     createAuthor(author: AuthorInput): String!
+    createPost(post: PostInput): String!
 }
 
 input AuthorInput {
     name: String!
     email: String!
+}
+
+input PostInput {
+     title: String!
+     description: String!
 }

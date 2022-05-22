@@ -7,6 +7,7 @@ import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.AuthorQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.hello_world.HelloWorldQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.mutations.AuthorMutationResolver;
+import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.mutations.PostMutationResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostFieldResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.projectdetail.ProjectDetailQueryResolver;
@@ -38,7 +39,10 @@ public class GraphQLConfig {
                         authorFieldQuery(),
                         postQuery(),
                         postFieldQuery(),
-                        authorMutation()
+
+                        // Mutations
+                        authorMutation(),
+                        postMutation()
 
                 )
                 .file("graphql/query.graphqls")
@@ -99,5 +103,10 @@ public class GraphQLConfig {
    @Bean
    public AuthorMutationResolver authorMutation() {
         return new AuthorMutationResolver();
+   }
+
+   @Bean
+   public PostMutationResolver postMutation() {
+        return new PostMutationResolver();
    }
 }
