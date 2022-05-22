@@ -6,6 +6,7 @@ import com.patrikduch.springbootgraphql.core.interfaces.daos.PostDao;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.AuthorFieldResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.author.AuthorQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.hello_world.HelloWorldQueryResolver;
+import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.mutations.AuthorMutationResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostFieldResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.post.PostQueryResolver;
 import com.patrikduch.springbootgraphql.infrastructure.graphql.resolvers.projectdetail.ProjectDetailQueryResolver;
@@ -36,10 +37,15 @@ public class GraphQLConfig {
                         authorQuery(),
                         authorFieldQuery(),
                         postQuery(),
-                        postFieldQuery()
+                        postFieldQuery(),
+                        authorMutation()
 
                 )
                 .file("graphql/query.graphqls")
+
+                // Mutations
+                .file("graphql/mutation.graphqls")
+
                 .file("graphql/project-detail.graphqls")
                 .file("graphql/comment.graphqls")
                 .file("graphql/message.graphqls")
@@ -88,5 +94,10 @@ public class GraphQLConfig {
    public ProjectDetailQueryResolver projectDetailQuery()
    {
         return new ProjectDetailQueryResolver();
+   }
+
+   @Bean
+   public AuthorMutationResolver authorMutation() {
+        return new AuthorMutationResolver();
    }
 }

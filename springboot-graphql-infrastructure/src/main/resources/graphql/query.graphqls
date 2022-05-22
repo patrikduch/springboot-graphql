@@ -7,4 +7,3 @@ type Query {
     getPosts(warehouseId: String!): PostList
     getAuthors(warehouseId: String!): AuthorList
 }
-
