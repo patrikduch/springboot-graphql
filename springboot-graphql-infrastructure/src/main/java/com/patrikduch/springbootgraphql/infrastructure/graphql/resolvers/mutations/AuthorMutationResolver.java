@@ -5,7 +5,7 @@ import com.patrikduch.domain.dtos.app.author.AuthorItemDto;
 import java.util.UUID;
 
 /**
- * Mutation for alltering state of Author entity.
+ * Mutation for altering state of Author entity.
  * @author Patrik Duch
  */
 public class AuthorMutationResolver implements GraphQLMutationResolver {
